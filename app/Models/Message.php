@@ -10,12 +10,12 @@ class Message extends Model
         'sender_id',
         'receiver_id',
         'message',
-        'attachment',
-        'folder_path',
+        'image',
         'is_read',
-        'read_at',
-        'created_at',
-        'id',
+    ];
+
+    protected $casts = [
+        'is_read' => "boolean",
     ];
 
     public function sender()

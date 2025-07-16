@@ -6,7 +6,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chats</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite('resources/css/app.css')
+    @fluxAppearance
     <style>
         .no-scrollbar::-webkit-scrollbar {
             display: none !important;
@@ -17,8 +18,6 @@
             scrollbar-width: none !important;
         }
     </style>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @fluxAppearance
 </head>
 
 <body class="min-h-screen bg-white dark:bg-zinc-800">
@@ -59,10 +58,16 @@
         <livewire:chat-list />
     </flux:sidebar>
 
-    <flux:main class="bg-zinc-50 dark:bg-zinc-800  ">
+    <div class="[grid-area:main] relative bg-zinc-50 dark:bg-zinc-800" data-flux-main>
         {{ $slot }}
-    </flux:main>
+    </div>
+
+    {{-- <flux:main>
+        {{ $slot }}
+    </flux:main> --}}
     @fluxScripts
+    @vite('resources/js/app.js')
+    @stack('scripts')
 </body>
 
 </html>

@@ -3,9 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -60,12 +62,12 @@ class User extends Authenticatable
             ->implode('');
     }
 
-    public function sendMessages(): HasMany
+    public function sentMessages()
     {
         return $this->hasMany(Message::class, 'sender_id');
     }
 
-    public function receivedMessages(): HasMany
+    public function receivedMessages()
     {
         return $this->hasMany(Message::class, 'receiver_id');
     }

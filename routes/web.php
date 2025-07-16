@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\UserController;
+use App\Livewire\Test;
 use App\Livewire\ChatComponent;
 use App\Livewire\Settings\Profile;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Appearance;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 Route::get('/', fn () => 'hello')->name('home');
 Route::redirect('/', 'dashboard');

@@ -28,7 +28,7 @@ class UserTyping implements ShouldBroadcastNow
     public function broadcastOn(): array
     {
         return [
-            new PrivateChannel('typing.' . $this->receiverId),
+            new PrivateChannel('typing.' . $this->receiverId . '.' . $this->userId),
         ];
     }
 

@@ -6,3 +6,7 @@
 
 import './echo';
 
+
+import emojiMartPicker from './emojiPicker.js';
+
+Alpine.data('emojiMartPicker', emojiMartPicker);
